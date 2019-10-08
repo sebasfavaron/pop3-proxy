@@ -1,0 +1,12 @@
+asdasd: a
+contEnt-typE: multipart/asd; boundary="dddddddddddddddddddd" waw
+conTent-tRansfEr-encoding: base64
+
+d
+
+--dddddddddddddddddddd
+content-type: asd;
+
+a
+--dddddddddddddddddddd--
+content-type: dsa;

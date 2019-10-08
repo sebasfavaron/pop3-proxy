@@ -1,0 +1,4 @@
+#define MAX_BUFFER 1024 * 1024
+#define MAX_DATAGRAM_SIZE 255 + 3
+
+#define STREAM 0
