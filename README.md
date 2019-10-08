@@ -1,91 +1,83 @@
-# pc-2018b-07
-## Ubicación de los materiales
-###informe
-informe.pdf 
-###documentos de soporte para la presentacion
-presentacion.pdf
-###codigos fuente
-####server proxy pop3 y SPCP
-server/src/
-#### Cliente SPCP
-client/src/
-####stripmime
-stripmime/
 
-##Generación de ejecutables
-###Generacion del proxy
+##Making the executables
+
+###Proxy
 ```
 cd server/src/
 make
 ```
-el artefacto generado se encontrara en server/src/
-###Generacion del cliente SPCP
+generated artifact will be in server/src/
+
+###SPCP Client
 ```
 cd client/src/
 make
 ```
-el artefacto generado se encontrara en client/src/
+generated artifact will be in client/src/
+
 ###Generacion del stripmime
 ```
 cd stripmime/
 make
 ```
-el artefacto generado se encontrara en stripmime/
-##Ejecucion de los artefactos y sus opciones.
-###El proxy
-para ejecutar el proxy se debe correr como
+generated artifact will be in stripmime/
+
+##Running artifacts and their options
+
+###Proxy
+
+Run in server/src:
 ```
 ./proxyPop [POSIX STYLE OPTIONS] <origin-server>
 ```
- Donde las opciones posix disponibles son:
+ Where POSIX STYLE OPTIONS are:
 
--e filter-error-file      especifica a dónde se dirige la salida de error al ejecutar los filtros, por defecto es /dev/null.
+```-e filter-error-file      specifies error file, /dev/null by default
 
--h                        Imprime el diálogo de ayuda y termina.
+-h                        prints this help dialogue
 
--l pop3-address           especifica la dirección en la cual el proxy escuchara, por default son todas las interfaces.
+-l pop3-address           specifies the address where the proxy is listening, every interface by default
 
--L config-address         especifica dónde estará escuchando el servicio SPCP, por default escucha en loopback.
+-L config-address         specifies the address where the SPCP service is listening, loopback by default
 
--m message                el mensaje que dejara el filtro cuando censura. 
+-m message                message used to replace filtered content 
 
--M censored-media-types   lista de media types que serán censurados
+-M censored-media-types   list of censured media types
 
--o management-port        Puerto SCTP donde escuchar ael servicio SPCP, por default es el 9090
+-o management-port        port where SPCP service listens, 9090 by default
 
--p local-port             puerto donde escuchará el proxy para conexiones TCP entrantes, por default es el 1110
+-p local-port             port where proxy listens for incoming TCP connections, 1110 by default
 
--P origin-port            puerto TCP donde estará escuchando el servidor de origen, por default es el 110
+-P origin-port            TCP port where origin server will be listening, 110 by default
 
--t cmd                    especifica el comando que se ejecutara para las transformaciones
+-t cmd                    specifies command to execute for the transformations
 
--v                        imprime la versión del proxy
+-v                        prints proxy version
+```
+###Client
 
-recordar que el artefacto se encuentra en server/src/
-###El cliente
-para ejecutar el cliente se debe correr como 
+Run in client/src: 
 ```
 ./spcpClient [POSIX STYLE OPTIONS] 
 ```
-por defecto asume servidor SPCP en 127.0.0.1:9090. Las opciones posix son:
+asumes SPCP server is 127.0.0.1:9090
 
--L config-address         dirección donde se encuentra el servidor SPCP
+POSIX STYLE OPTIONS are:
+
+```-L config-address         dirección donde se encuentra el servidor SPCP
 
 -o management-port        el puerto en donde se encuentra escuchando el servidor SPCP
+```
 
-recordar que el artefacto se encuentra en client/src/
-###EL stripmime 
-para ejecutar el stripmime se corre como
+###Stripmime 
+
+Run in stripmime/:
 ```
 ./stripmime <optional-input-file>
 ```
-el stripmime utiliza variables de entorno para su funcionamiento, estas son:
 
-FILTER_MEDIAS los media types que filtara el stripmime, en formato csv
+Stripmime uses environment variables to work, these are:
 
-FILTER_MSG el mensaje por el cual reemplazara los media types filtrados
+FILTER_MEDIAS the media types to filter, in csv format
 
-
-en donde se puede especificar el archivo de input o por defecto leera de stdin.
-
-recordar que el artefacto se encuenta en stripmime/
+FILTER_MSG message to replace censured media types with
