@@ -1,30 +1,30 @@
 
-##Making the executables
+## Making the executables
 
-###Proxy
+### Proxy
 ```
 cd server/src/
 make
 ```
 generated artifact will be in server/src/
 
-###SPCP Client
+### SPCP Client
 ```
 cd client/src/
 make
 ```
 generated artifact will be in client/src/
 
-###Generacion del stripmime
+### Stripmime
 ```
 cd stripmime/
 make
 ```
 generated artifact will be in stripmime/
 
-##Running artifacts and their options
+## Running artifacts and their options
 
-###Proxy
+### Proxy
 
 Run in server/src:
 ```
@@ -54,13 +54,13 @@ Run in server/src:
 
 -v                        prints proxy version
 ```
-###Client
+### Client
 
 Run in client/src: 
 ```
 ./spcpClient [POSIX STYLE OPTIONS] 
 ```
-asumes SPCP server is 127.0.0.1:9090
+(asumes SPCP server is 127.0.0.1:9090)
 
 POSIX STYLE OPTIONS are:
 
@@ -69,7 +69,7 @@ POSIX STYLE OPTIONS are:
 -o management-port        el puerto en donde se encuentra escuchando el servidor SPCP
 ```
 
-###Stripmime 
+### Stripmime 
 
 Run in stripmime/:
 ```
